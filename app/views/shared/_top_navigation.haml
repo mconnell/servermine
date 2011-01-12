@@ -1,0 +1,7 @@
+- if account_signed_in?
+  = link_to 'Servers', account_servers_path
+  = link_to 'My Account', edit_account_registration_path
+  = link_to 'Logout', destroy_account_session_path
+- else
+  = link_to 'Login', account_session_path
+  = link_to 'Sign Up', new_account_registration_path
