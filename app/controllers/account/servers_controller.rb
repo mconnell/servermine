@@ -4,4 +4,8 @@ class Account::ServersController < AccountController
     @servers = current_account.servers
   end
 
+  def new
+    @server = current_account.servers.build
+  end
+
 end
