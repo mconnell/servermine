@@ -33,4 +33,37 @@ describe Account::ServersController do
     end
   end
 
+  describe "POST #create" do
+    describe "after successfully saving" do
+      before(:each) do
+        server = mock_model(Server)
+        server.stub!(:save).and_return(true)
+        controller.current_account.servers.stub!(:build).and_return(server)
+      end
+
+      it "should build a new server assigned to current_account" do
+        controller.current_account.servers.should_receive(:build).with({})
+        post :create, :server => {}
+      end
+
+      it "should redirect to the server list" do
+        post :create, :server => {}
+        assert_redirected_to account_servers_path
+      end
+    end
+
+    describe "after failing to save" do
+      before(:each) do
+        server = mock_model(Server)
+        server.stub!(:save).and_return(false)
+        controller.current_account.servers.stub!(:build).and_return(server)
+      end
+
+      it "should render the :new template" do
+        post :create, :server => {}
+        assert_template :new
+      end
+    end
+  end
+
 end
