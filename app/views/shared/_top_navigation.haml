@@ -1,5 +1,7 @@
 #top_navigation
-  %h1= link_to 'ServerMine', root_url
+  %h1
+    %a{:href => root_url}
+      Server<span>Mine</span>
 
   %ul
     - if account_signed_in?
