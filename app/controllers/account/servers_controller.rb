@@ -4,6 +4,10 @@ class Account::ServersController < AccountController
     @servers = current_account.servers
   end
 
+  def show
+    @server = current_account.servers.find(params[:id])
+  end
+
   def new
     @server = current_account.servers.build
   end

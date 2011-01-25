@@ -1,0 +1,11 @@
+= render 'shared/html_declaration'
+
+#content.container_12.login
+  .title.grid_6.push_3
+    %h1
+      %a{:href => root_url}
+        Server<span>Mine</span>
+  .clear
+  .display.login.grid_6.push_3
+    = yield
+.clear

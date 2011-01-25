@@ -15,6 +15,22 @@ describe Account::ServersController do
     end
   end
 
+  describe "GET #show" do
+    before(:each) do
+      controller.current_account.servers.stub!(:find).and_return(mock_model(Server))
+    end
+
+    it "should be successful" do
+      get :show, :id => 123
+      assert_response :success
+    end
+
+    it "should fetch a server from the current account" do
+      controller.current_account.servers.should_receive(:find).with('123')
+      get :show, :id => '123'
+    end
+  end
+
   describe "GET #new" do
     it "should be successful" do
       get :new

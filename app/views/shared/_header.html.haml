@@ -1,0 +1,18 @@
+#header_wrapper
+  #header.container_12
+    .title.grid_4
+      %h1
+        %a{:href => root_url}
+          Server<span>Mine</span>
+    .navigation.grid_4.push_4
+      %ul
+        - if account_signed_in?
+          %li= link_to 'Servers', account_servers_path
+          %li= link_to 'My Account', edit_account_registration_path
+          %li= link_to 'Logout', destroy_account_session_path
+        - else
+          %li= link_to 'Login', account_session_path
+          %li= link_to 'Sign Up', new_account_registration_path
+  .clear
+
+%br/
