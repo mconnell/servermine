@@ -68,13 +68,16 @@ h1 span, h2 span, h3 span{
 
 .display{
   background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
 }
 
 .display h2{
-  background-color: #D7EFF7;
+  color: #545454;
   font-size: 1.5em;
-  padding-bottom: 0.2em;
+  padding-bottom: 5px;
   border-bottom: 3px solid #eee;
+  margin-bottom: 10px;
 }
 
 .login .title{
@@ -95,4 +98,48 @@ h1 span, h2 span, h3 span{
 .display.login h2{
   background-color: transparent;
   border: 0;
+}
+
+.side_nav .ip_address{
+  padding-top: 11px;
+  font-size: 1.5em;
+  color: #808080;
+  margin-bottom: 10px;
+}
+
+.side_nav a{
+  display: block;
+  color: #545454;
+  font-size: 0.9em;
+  line-height: 1.5em;
+}
+
+.side_nav a:hover{
+  color: #242424;
+}
+
+.side_nav a#cancel_server{
+  color: #FB2828;
+  font-size: 0.7em;
+}
+
+.side_nav .group{
+  outline: none;
+  border: none;
+  background-color: inherit;
+  margin: 1em 0;
+}
+
+.side_nav .group .title{
+  font-size: 1.4em;
+  color: #545454;
+}
+
+.side_nav .group .sub{
+  font-size: 0.7em;
+  color: #838383;
+}
+
+.side_nav .group .links{
+  margin-top: 10px;
 }
