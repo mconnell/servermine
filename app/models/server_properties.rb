@@ -14,6 +14,7 @@ class ServerProperties < ActiveRecord::Base
   private
   def santised_attributes
     attributes_to_write = self.attributes
+    attributes_to_write.delete('server_id')
     attributes_to_write.delete('created_at')
     attributes_to_write.delete('updated_at')
     attributes_to_write
