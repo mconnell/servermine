@@ -14,3 +14,7 @@ group :development, :test do
   gem "rspec-rails"
   gem 'sqlite3-ruby', :require => 'sqlite3'
 end
+
+group :test do
+  gem 'fakefs',  :require => 'fakefs/safe', :git => 'git://github.com/defunkt/fakefs.git'
+end

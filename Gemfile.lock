@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/defunkt/fakefs.git
+  revision: fa2cacf
+  specs:
+    fakefs (0.3.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -109,6 +115,7 @@ PLATFORMS
 
 DEPENDENCIES
   devise
+  fakefs!
   haml (>= 3.0.0)
   haml-rails
   heroku

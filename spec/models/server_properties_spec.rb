@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ServerProperties do
+
   describe "#create_file" do
     it "should create a file that looks like a server.properties file" do
       server_properties = ServerProperties.new({
@@ -15,11 +16,14 @@ describe ServerProperties do
         :server_port    => 25565
       })
 
+      FakeFS.activate!
       generated_file = File.open(server_properties.create_file, 'r')
-      example_file = File.open(Rails.root.join('spec', 'support', 'sample_config_files', 'server.properties'),'rb').read
+      FakeFS.deactivate!
+
+      example_file = File.open(Rails.root.join('spec', 'support', 'sample_config_files', 'server.properties').to_s,'rb').read
 
       generated_file.each do |line|
-        assert example_file.include?(line), "Should include [#{line}]"
+        assert example_file.include?(line.strip), "Should include [#{line.strip}]"
       end
     end
   end
