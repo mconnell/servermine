@@ -1,4 +1,4 @@
-class Account::ServersController < AccountController
+class Account::ServersController < ApplicationController
 
   def index
     @servers = current_account.servers

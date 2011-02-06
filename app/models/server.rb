@@ -5,4 +5,7 @@ class Server < ActiveRecord::Base
 
   # validations
   validates_presence_of :account
+
+  # callbacks
+  after_create :create_server_properties
 end

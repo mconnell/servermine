@@ -1,0 +1,15 @@
+%h2 Server Properties
+
+= simple_form_for @server_properties, :url => account_server_server_properties_path do |form|
+
+  = form.input :level_name
+  = form.input :max_players
+  = form.input :server_ip
+  = form.input :server_port
+  = form.input :online_mode
+  = form.input :hellworld
+  = form.input :spawn_monsters
+  = form.input :spawn_animals
+  = form.input :pvp
+
+  = form.button :submit
