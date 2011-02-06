@@ -27,4 +27,13 @@ describe Account::Servers::ServerPropertiesController do
     end
   end
 
+  describe "PUT #update" do
+    context "after successful update" do
+      it "should redirect to the server #show" do
+        put :update, :server_id => @server.id, :server_properties => { 'hellworld' => true }
+        assert_redirected_to account_server_path(@server)
+      end
+    end
+  end
+
 end

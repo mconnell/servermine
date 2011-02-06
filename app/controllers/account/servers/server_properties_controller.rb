@@ -9,6 +9,15 @@ class Account::Servers::ServerPropertiesController < ApplicationController
     @server_properties = @server.server_properties
   end
 
+  def update
+    @server_properties = @server.server_properties
+    if @server_properties.update_attributes(params[:server_properties])
+      redirect_to [:account, @server]
+    else
+      render :action => :edit
+    end
+  end
+
   private
   def find_server
     @server = current_account.servers.find(params[:server_id])
