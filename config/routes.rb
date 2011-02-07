@@ -7,6 +7,7 @@ Servermine::Application.routes.draw do
     resources :servers do
       resource :server_properties, :controller => 'servers/server_properties'
       resource :ops, :controller => 'servers/ops'
+      resource :banned_players, :controller => 'servers/banned_players'
     end
   end
 

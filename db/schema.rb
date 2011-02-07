@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110206214057) do
+ActiveRecord::Schema.define(:version => 20110207221553) do
 
   create_table "accounts", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(:version => 20110206214057) do
   add_index "accounts", ["email"], :name => "index_accounts_on_email", :unique => true
   add_index "accounts", ["reset_password_token"], :name => "index_accounts_on_reset_password_token", :unique => true
   add_index "accounts", ["unlock_token"], :name => "index_accounts_on_unlock_token", :unique => true
+
+  create_table "banned_players_servers", :id => false, :force => true do |t|
+    t.integer "player_id"
+    t.integer "server_id"
+  end
 
   create_table "ops_servers", :id => false, :force => true do |t|
     t.integer "player_id"

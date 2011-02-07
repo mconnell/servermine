@@ -1,0 +1,14 @@
+%h2 Banned Players
+
+= simple_form_for @server, :url => account_server_banned_players_path, :html => { :method => 'put' } do |form|
+
+  =form.simple_fields_for :banned_players do |banned_players_form|
+    = render 'banned_player', :form => banned_players_form
+
+  #fields
+  = add_child_link "Add Banned Player", :banned_players
+  = new_child_fields_template form, :banned_players
+  = form.submit 'Update Banned Players'
+
+#form_templates
+  = yield :form_templates
