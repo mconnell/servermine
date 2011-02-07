@@ -6,6 +6,7 @@ Servermine::Application.routes.draw do
   namespace :account do
     resources :servers do
       resource :server_properties, :controller => 'servers/server_properties'
+      resource :ops, :controller => 'servers/ops'
     end
   end
 

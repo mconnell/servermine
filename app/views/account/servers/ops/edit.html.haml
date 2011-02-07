@@ -1,0 +1,14 @@
+%h2 Ops
+
+= simple_form_for @server, :url => account_server_ops_path, :html => { :method => 'put' } do |form|
+  
+  =form.simple_fields_for :ops do |ops_form|
+    = render 'op', :form => ops_form
+
+  #fields
+  = add_child_link "Add Op", :ops
+  = new_child_fields_template form, :ops
+  = form.submit 'Update Ops'
+
+#form_templates
+  = yield :form_templates
