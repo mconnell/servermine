@@ -13,4 +13,14 @@ class Server < ActiveRecord::Base
 
   # callbacks
   after_create :create_server_properties
+
+  def create_ops_file
+    file_path = Rails.root.join('tmp', "#{self.class.name}-#{Time.now.to_f}")
+    File.open(file_path, 'w') do |file|
+      ops.each do |player|
+        file.write "#{player.username}\r\n"
+      end
+    end
+    file_path
+  end
 end
