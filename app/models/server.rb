@@ -15,9 +15,19 @@ class Server < ActiveRecord::Base
   after_create :create_server_properties
 
   def create_ops_file
-    file_path = Rails.root.join('tmp', "#{self.class.name}-#{Time.now.to_f}")
+    file_path = Rails.root.join('tmp', "opts-#{Time.now.to_f}")
     File.open(file_path, 'w') do |file|
       ops.each do |player|
+        file.write "#{player.username}\r\n"
+      end
+    end
+    file_path
+  end
+
+  def create_banned_players_file
+    file_path = Rails.root.join('tmp', "banned_players-#{Time.now.to_f}")
+    File.open(file_path, 'w') do |file|
+      banned_players.each do |player|
         file.write "#{player.username}\r\n"
       end
     end
