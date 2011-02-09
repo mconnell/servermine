@@ -1,0 +1,14 @@
+%h2 Banned IPs
+
+= simple_form_for @server, :url => account_server_banned_ips_path, :html => { :method => 'put' } do |form|
+
+  =form.simple_fields_for :banned_ips do |banned_ips_form|
+    = render 'banned_ip', :form => banned_ips_form
+
+  #fields
+  = add_child_link "Add Banned IP", :banned_ips
+  = new_child_fields_template form, :banned_ips
+  = form.submit 'Update Banned IPs'
+
+#form_templates
+  = yield :form_templates

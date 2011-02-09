@@ -1,4 +1,4 @@
-class Account::Servers::ServerPropertiesController < ApplicationController
+class Account::Servers::BannedIpsController < ApplicationController
   layout 'server'
   before_filter :find_server
 
@@ -7,12 +7,11 @@ class Account::Servers::ServerPropertiesController < ApplicationController
   end
 
   def edit
-    @server_properties = @server.server_properties
+    @banned_ips = @server.banned_ips
   end
 
   def update
-    @server_properties = @server.server_properties
-    if @server_properties.update_attributes(params[:server_properties])
+    if @server.update_attributes(params[:server])
       redirect_to [:account, @server]
     else
       render :action => :edit

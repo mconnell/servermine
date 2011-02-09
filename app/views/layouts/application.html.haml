@@ -2,33 +2,7 @@
 = render 'shared/header'
 
 #content.container_12
-  .grid_9
+  .grid_12
     .display
       = yield
-  .grid_3.side_nav
-    .ip_address 192.168.255.255
-    = link_to 'Server Overview', [:account, @server]
-    = link_to 'Cancel Server', '#', :id => 'cancel_server'
-
-    .group
-      .title Game Server
-      .links
-        = link_to 'Server Properties', [:account, @server, :server_properties]
-        = link_to 'Ops', [:account, @server, :ops]
-        = link_to 'Banned Players', [:account, @server, :banned_players]
-        = link_to 'Banned IPs', '#'
-        = link_to 'Import a World', '#'
-    .group
-      .title World Backups
-      .links
-        = link_to 'Backup Settings', '#'
-        = link_to 'Restore a Backup', '#'
-        = link_to 'View Backup Files', '#'
-
-    .group
-      .title Virtual Machine
-      .sub 1024MB | 2 Virtual Cores
-      .links
-        = link_to 'Performance', '#'
-        = link_to 'Upgrade / Downgrade', '#'
 .clear

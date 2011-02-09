@@ -1,3 +1,8 @@
 %h2 Server Overview
 
-bla blaa bla
+.count
+  =pluralize @server.banned_players.count, 'Banned Player'
+.count
+  =pluralize @server.banned_ips.count, 'Banned IP'
+.count
+  =pluralize @server.ops.count, 'Ops'

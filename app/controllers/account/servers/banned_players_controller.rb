@@ -1,4 +1,5 @@
 class Account::Servers::BannedPlayersController < ApplicationController
+  layout 'server'
   before_filter :find_server
 
   def show

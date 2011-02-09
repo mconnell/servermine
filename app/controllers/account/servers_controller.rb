@@ -6,6 +6,7 @@ class Account::ServersController < ApplicationController
 
   def show
     @server = current_account.servers.find(params[:id])
+    render :show, :layout => 'server'
   end
 
   def new
