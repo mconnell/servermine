@@ -3,4 +3,4 @@
 = link_to 'New Server', new_account_server_path
 
 - @servers.each do |server|
-  %p= server.inspect
+  %p=link_to server.inspect, account_server_path(server)
